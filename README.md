@@ -28,7 +28,8 @@ Run `npm i node-examples`
 
 **Optional**
 * `prefix` the prefix that shold preceed the getters in the REPL. Default `example_`
-* `context` the context to load the examples into as getters. Default is current REPL context (`require('repl').repl.context`).
+* `context` the context to load the examples into as getters. Default is current REPL context (`require('repl').repl.context`) or node `global` if no REPL found.
+* `out` the writable stream to output on. Default is `process.stdout`.
 * `linenos` whether or not to show linenumbers in the output. Default is `true`
 * `clear` whether or not to clear the REPL before showing the output. Default is `true`
 
