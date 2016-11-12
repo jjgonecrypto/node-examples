@@ -2,15 +2,32 @@
 
 [![npm version](https://badge.fury.io/js/node-examples.svg)](https://badge.fury.io/js/node-examples) [![travis-ci](https://travis-ci.org/justinjmoses/node-examples.svg?branch=master)](https://travis-ci.org/justinjmoses/node-examples.svg?branch=master)
 
-A simple tool to show and run code snippets in the node REPL
+A simple tool to show and run code snippets in the node REPL. Adds on files as named getters into the REPL context.
 
 ![](https://media.giphy.com/media/M3wLDsfYl0z7O/giphy.gif)
 
 ###Installation
 Run `npm i node-examples`
 
-###Examples
-Run via `node examples`
+###Usage
+
+1. Start a node REPL via `node` (or programmatically via `require('repl').start`) (see https://nodejs.org/api/repl.html for more info)
+
+2. Require node-examples `const examples = require('node-examples)`
+
+3. Import the examples `examples({ path: 'examples' })`
+
+4. Your example files are added as getters on the running REPL context. So `example_01_basic` will output and require the file.
+
+![examples](https://cloud.githubusercontent.com/assets/799038/20240505/ede0ef28-a8e7-11e6-9e79-cd2173ff6794.gif)
+
+###Configuration
+
+* `prefix` the prefix that shold preceed the getters in the REPL. Default `example_`
+* `path` the absolute or relative path (from the current working directory) to the examples to be loaded
+* `context` the context to load the examples into as getters. Default is current REPL context (if any).
+* `linenos` whether or not to show linenumbers in the output. Default is `true`
+* `clear` whether or not to clear the REPL before showing the output. Default is `true`
 
 ###Run Tests
 Run via `npm test`
