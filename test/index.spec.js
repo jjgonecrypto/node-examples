@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 
 const Writable = require('stream').Writable
+const repl = require('repl')
 const npath = require('path')
 const assert = require('assert')
 const sinon = require('sinon')
@@ -88,9 +89,28 @@ describe('node-examples', function() {
         })
     })
 
+    describe('when a REPL is running', () => {
+        beforeEach(() => {
+            this.replServer = repl.start({ prompt: '' })
+            examples({ path, out })
+        })
+
+        afterEach(() => {
+            this.replServer.close()
+            delete repl.repl // required to get around node memoizing repl context
+        })
+
+        it('then it does NOT add it using the default prefix', () => {
+            assert.equal(global.example_a, undefined)
+        })
+
+        it('and it does add it to the REPL context', () => {
+            assert.equal(this.replServer.context.example_a, 'test123')
+        })
+    })
+
     describe('when given a prefix', () => {
         beforeEach(() => {
-            this.context = {}
             examples({ path, out, prefix: 'some_' })
         })
 

@@ -3,11 +3,11 @@
 const npath = require('path')
 const fs = require('fs')
 
-const repl = require('repl').repl
+const repl = require('repl')
 
 const cardinal = require('cardinal')
 
-module.exports = ({ path, out = process.stdout, context = repl ? repl.context : global, prefix = 'example_', clear = true, linenos = true }) => {
+module.exports = ({ path, out = process.stdout, context = repl.repl ? repl.repl.context : global, prefix = 'example_', clear = true, linenos = true }) => {
 
     const pathToExamples = npath.isAbsolute(path) ? path : npath.join(process.cwd(), path)
 
