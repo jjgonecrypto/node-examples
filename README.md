@@ -1,6 +1,6 @@
 #node-examples
 
-[![npm version](https://badge.fury.io/js/node-examples.svg)](https://badge.fury.io/js/node-examples) [![travis-ci](https://travis-ci.org/justinjmoses/node-examples)](https://travis-ci.org/justinjmoses/node-examples.svg?branch=master)
+[![npm version](https://badge.fury.io/js/node-examples.svg)](https://badge.fury.io/js/node-examples) [![travis-ci](https://travis-ci.org/justinjmoses/node-examples.svg?branch=master)](https://travis-ci.org/justinjmoses/node-examples)
 
 A simple tool to show and run code snippets in the node REPL. Great for talks and demos - show and run your code right in the REPL. Adds on files as named getters into the REPL context.
 
