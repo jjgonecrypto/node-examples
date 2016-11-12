@@ -1,0 +1,25 @@
+{
+  "name": "node-examples",
+  "version": "1.0.0",
+  "description": "A simple tool to show and run code snippets in the node REPL",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint . && mocha"
+  },
+  "keywords": [
+    "node-examples"
+  ],
+  "author": "justin j. moses <justinjmoses@gmail.com>",
+  "license": "MIT",
+  "repository": "justinjmoses/node-examples",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "mocha": "^3.1.2",
+    "sinon": "^1.17.6",
+    "eslint": "^3.9.1"
+  }
+}
