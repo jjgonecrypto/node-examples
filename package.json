@@ -1,6 +1,6 @@
 {
   "name": "node-examples",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A simple tool to show and run code snippets in the node REPL",
   "main": "index.js",
   "scripts": {
