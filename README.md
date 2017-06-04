@@ -32,6 +32,7 @@ Run `npm i node-examples`
 * `out` the writable stream to output on. Default is `process.stdout`.
 * `linenos` whether or not to show linenumbers in the output. Default is `true`
 * `clear` whether or not to clear the REPL before showing the output. Default is `true`
+* `cache` whether or not to cache the example files rather than reloading fresh each time. Default is `true`
 
 ###Run Tests
 Run via `npm test`

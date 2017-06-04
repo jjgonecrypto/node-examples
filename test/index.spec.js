@@ -3,6 +3,7 @@
 const Writable = require('stream').Writable
 const repl = require('repl')
 const npath = require('path')
+const fs = require('fs')
 const assert = require('assert')
 const sinon = require('sinon')
 
@@ -126,6 +127,61 @@ describe('node-examples', function() {
 
         it('and it does NOT add it using the default prefix', () => {
             assert.equal(global.example_a, undefined)
+        })
+    })
+
+    describe('when a new file is created', () => {
+        const filepath = npath.join(path, 'd.js')
+
+        beforeEach(() => {
+            fs.writeFileSync(filepath, 'module.exports = 565')
+        })
+
+        afterEach(() => {
+            delete example_d
+            fs.unlinkSync(filepath)
+        })
+
+        // NOTE: This section breaks under sucessive `mocha watch` as example_d isn't
+        // being properly removed from the global scope. (TODO)
+        describe('and the examples are loaded with defaults', () => {
+            beforeEach(() => {
+                examples({ path, out })
+            })
+
+            it('then it is loaded', () => {
+                assert.equal(example_d, 565)
+            })
+
+            describe('when the file changes', () => {
+                beforeEach(() => {
+                    fs.writeFileSync(filepath, 'module.exports = 101')
+                })
+
+                it('then the same cached result is returned', () => {
+                    assert.equal(example_d, 565)
+                })
+            })
+        })
+
+        describe('and the examples are loaded with cache = false', () => {
+            beforeEach(() => {
+                examples({ path, out, cache: false })
+            })
+
+            it('then it is loaded', () => {
+                assert.equal(example_d, 565)
+            })
+
+            describe('when the file changes', () => {
+                beforeEach(() => {
+                    fs.writeFileSync(filepath, 'module.exports = 101')
+                })
+
+                it('then the result is unchanged', () => {
+                    assert.equal(example_d, 101)
+                })
+            })
         })
     })
 })
