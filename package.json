@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "mocha": "^3.1.2",
-    "sinon": "^2.0.0",
+    "sinon": "^4.4.1",
     "eslint": "^3.9.1"
   }
 }
