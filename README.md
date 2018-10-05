@@ -1,4 +1,4 @@
-#node-examples
+# node-examples
 
 [![npm version](https://badge.fury.io/js/node-examples.svg)](https://badge.fury.io/js/node-examples) [![travis-ci](https://travis-ci.org/justinjmoses/node-examples.svg?branch=master)](https://travis-ci.org/justinjmoses/node-examples)
 
@@ -6,10 +6,10 @@ A simple tool to show and run code snippets in the node REPL. Great for talks an
 
 ![](https://media.giphy.com/media/M3wLDsfYl0z7O/giphy.gif)
 
-###Installation
+### Installation
 Run `npm i node-examples`
 
-###Usage
+### Usage
 
 1. Start a node REPL via `node` (or programmatically via `require('repl').start`) (see https://nodejs.org/api/repl.html for more info)
 
@@ -21,7 +21,7 @@ Run `npm i node-examples`
 
 ![examples](https://cloud.githubusercontent.com/assets/799038/20240505/ede0ef28-a8e7-11e6-9e79-cd2173ff6794.gif)
 
-###Configuration
+### Configuration
 
 **Required**
 * `path` the absolute or relative path (from the current working directory) to the examples to be loaded
@@ -34,5 +34,5 @@ Run `npm i node-examples`
 * `clear` whether or not to clear the REPL before showing the output. Default is `true`
 * `cache` whether or not to cache the example files rather than reloading fresh each time. Default is `true`
 
-###Run Tests
+### Run Tests
 Run via `npm test`
